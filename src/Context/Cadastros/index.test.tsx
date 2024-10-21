@@ -5,8 +5,6 @@ jest.mock("react-router-dom", () => ({
   useHistory: jest.fn(() => ({ push: jest.fn() })),
 }));
 
-const mockCadastrar = jest.fn();
-
 const mockData = jest.fn(() => [
   {
     admissionDate: "22/10/2023",
