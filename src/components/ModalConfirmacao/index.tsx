@@ -33,19 +33,23 @@ const ModalConfirmation = () => {
           <S.Modal>
             <S.Title>
               <h2>Deseja confirmar o evento?</h2>
-              <h3>{`Desejar passar o card para ${getStatosMov()}`}</h3>
+              <h3
+                aria-label={`Modal de confirmação: Desejar passar o card para${getStatosMov()}`}
+              >{`Desejar passar o card para ${getStatosMov()}`}</h3>
             </S.Title>
 
             <S.ModalFooter>
               <Button
                 bgcolor="#FF919A"
                 data-testid="btn-cance-modal"
+                aria-label="Botão cancelar"
                 onClick={() => changeModal()}
               >
                 Cancel
               </Button>
               <Button
                 data-testid="btn-confirm-modal"
+                aria-label="Botão confirmar"
                 onClick={() => handleConfirm()}
               >
                 Confirmar

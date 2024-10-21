@@ -12,13 +12,16 @@ const ModalMessage = () => {
         <S.Container>
           <S.Modal>
             <S.Title>
-              <h2>{modalAviso.msg}</h2>
+              <h2 aria-label={`Modal de avisos: ${modalAviso.msg}`}>
+                {modalAviso.msg}
+              </h2>
             </S.Title>
 
             <S.ModalFooter>
               <Button
                 data-testid="btn-ok-msg"
                 onClick={() => changeModalAviso()}
+                aria-label="Confirma visualização do aviso"
               >
                 OK!
               </Button>

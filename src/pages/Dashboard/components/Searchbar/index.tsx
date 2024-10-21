@@ -28,12 +28,21 @@ export const SearchBar = () => {
         onChange={(event) => {
           setFilter(cpfMask(event.target.value));
         }}
+        aria-label="Campo pesquisar por cpf"
       />
       <S.Actions>
         <IconButton aria-label="refetch">
-          <HiRefresh onClick={() => getDados()} data-testid="btn-refresh" />
+          <HiRefresh
+            onClick={() => getDados()}
+            data-testid="btn-refresh"
+            aria-label="Botão atualizar cards"
+          />
         </IconButton>
-        <Button data-testid="btn-newAdm" onClick={() => goToNewAdmissionPage()}>
+        <Button
+          data-testid="btn-newAdm"
+          onClick={() => goToNewAdmissionPage()}
+          aria-label="Botão nova admissão"
+        >
           Nova Admissão
         </Button>
       </S.Actions>

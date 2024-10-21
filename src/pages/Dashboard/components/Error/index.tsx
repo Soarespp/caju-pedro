@@ -11,7 +11,9 @@ const Error = ({ msgError }: propsError) => {
     <S.ContainerLoader>
       <S.logo>
         <RiSignalWifiErrorLine size="200px" />
-        <h2>Houve o seguinte erro com a api:</h2>
+        <h2 aria-label={`Houve o seguinte erro com a api: ${msgError}`}>
+          Houve o seguinte erro com a api:
+        </h2>
         <h4>{msgError}</h4>
       </S.logo>
     </S.ContainerLoader>

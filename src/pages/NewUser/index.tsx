@@ -98,7 +98,7 @@ const NewUserPage = () => {
           <IconButton
             data-testid="btn-back-cadastro"
             onClick={() => goToHome()}
-            aria-label="back"
+            aria-label="Voltar para home"
           >
             <HiOutlineArrowLeft size={24} />
           </IconButton>
@@ -143,7 +143,11 @@ const NewUserPage = () => {
               handleChange("admissionDate", event.target.value)
             }
           />
-          <Button data-testid="btn-cadastar-user" disabled={!validate}>
+          <Button
+            data-testid="btn-cadastar-user"
+            disabled={!validate}
+            aria-label="Botão para cadastrar usuário"
+          >
             Cadastrar
           </Button>
         </S.Card>

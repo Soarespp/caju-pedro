@@ -16,7 +16,10 @@ const Collumns = () => {
         return (
           <S.Column status={collum.status} key={collum.title}>
             <>
-              <S.TitleColumn status={collum.status}>
+              <S.TitleColumn
+                status={collum.status}
+                aria-label={`Coluna de ${collum.title}`}
+              >
                 {collum.title}
               </S.TitleColumn>
               <S.CollumContent>

@@ -22,20 +22,25 @@ const RegistrationCard = (props: Props) => {
       <S.Card>
         <S.IconAndText>
           <HiOutlineUser />
-          <h3>{props.data.employeeName}</h3>
+          <h3 aria-label={props.data.employeeName}>
+            {props.data.employeeName}
+          </h3>
         </S.IconAndText>
         <S.IconAndText>
           <HiOutlineMail />
-          <p>{props.data.email}</p>
+          <p aria-label={props.data.email}>{props.data.email}</p>
         </S.IconAndText>
         <S.IconAndText>
           <HiOutlineCalendar />
-          <span>{props.data.admissionDate}</span>
+          <span aria-label={props.data.admissionDate}>
+            {props.data.admissionDate}
+          </span>
         </S.IconAndText>
         <S.Actions>
           {props.data.status === "REVIEW" && (
             <ButtonSmall
               data-testid="btn-reprove"
+              aria-label="Botão para reprovar o card"
               bgcolor="rgb(255, 145, 154)"
               onClick={() => {
                 props.changeModal("REPROVED", props.data);
@@ -49,6 +54,7 @@ const RegistrationCard = (props: Props) => {
             <ButtonSmall
               data-testid="btn-approved"
               bgcolor="rgb(155, 229, 155)"
+              aria-label="Botão para aprovar o card"
               onClick={() => {
                 props.changeModal("APPROVED", props.data);
               }}
@@ -60,6 +66,7 @@ const RegistrationCard = (props: Props) => {
             <ButtonSmall
               data-testid="btn-review"
               bgcolor="#ff8858"
+              aria-label="Botão para enviar para revisão"
               onClick={() => {
                 props.changeModal("REVIEW", props.data);
               }}
@@ -70,6 +77,7 @@ const RegistrationCard = (props: Props) => {
 
           <HiOutlineTrash
             data-testid="btn-delete-card"
+            aria-label="Botão para excluir o card"
             onClick={() => props.deleteCard(props.data.id)}
           />
         </S.Actions>

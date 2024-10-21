@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <S.ContainerLoader>
       <S.logo>
-        <p>loading...</p>
+        <p aria-label="Carregando os dados... "> loading...</p>
       </S.logo>
     </S.ContainerLoader>
   );
