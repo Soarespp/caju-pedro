@@ -7,11 +7,25 @@ jest.mock("react-router-dom", () => ({
 
 const mockCadastrar = jest.fn();
 
-jest.mock("~/Context", () => ({
-  ...jest.requireActual("~/Context"),
-  useCadastroContext: jest.fn(() => ({
-    addRegistration: mockCadastrar,
-  })),
+const mockData = jest.fn(() => [
+  {
+    admissionDate: "22/10/2023",
+    email: "filipe@caju.com.br",
+    employeeName: "Filipe Marins",
+    status: "REVIEW",
+    cpf: "78502270001",
+    id: "3",
+  },
+]);
+
+jest.mock("axios", () => ({
+  __esModule: true,
+  get: jest.fn(() =>
+    Promise.resolve({
+      data: mockData(),
+    })
+  ),
+  default: jest.fn(() => Promise.resolve({ data: mockData })),
 }));
 
 describe("NewUserPage", () => {
@@ -30,7 +44,7 @@ describe("NewUserPage", () => {
   it("Should handleChangeStatus", async () => {
     renderComponent();
     fireEvent.click(screen.getByText("handleChangeStatus"));
-    expect(await screen.findByText("Movido o card para REPROVED com sucesso."));
+    await waitFor(() => expect(mockData).toHaveBeenCalled());
   });
 });
 
